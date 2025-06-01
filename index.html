@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bucks Nickname Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white flex flex-col items-center justify-center min-h-screen px-4">
+
+  <h1 class="text-3xl font-bold mb-4 text-center text-green-400">🧢 Bucks County Nickname Generator</h1>
+
+  <p class="text-red-400 text-sm mb-6 text-center italic">Enter your name, get your Bucks alter ego</p>
+
+  <input 
+    id="nameInput" 
+    type="text" 
+    placeholder="Enter your name..." 
+    class="mb-4 px-4 py-2 rounded-md w-full max-w-xs bg-gray-800 border border-green-500 text-center text-white placeholder-gray-400"
+  />
+
+  <button 
+    onclick="generateNickname()" 
+    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl mb-6 transition"
+  >
+    Get My Nickname
+  </button>
+
+  <div 
+    id="nickname" 
+    class="text-2xl text-center font-mono bg-gray-900 px-4 py-6 rounded-xl shadow-inner w-full max-w-md border border-green-600"
+  >
+    👆 Type your name above!
+  </div>
+
+  <footer class="mt-10 text-red-500 text-xs text-center">
+    Bucks Made. Slang Approved.
+  </footer>
+
+  <script>
+    const formats = ['Big {name}', 'Lil’ {name}', '{name} the Jawn', 'Turnpike {name}', 'South Wawa {name}', '{name} from the Creek', 'Creek Crawler {name}', '{name} 215', '{name} from Bucks', 'OG {name}', 'Wawa Beast {name}', '{name} the Goat', '{name} from Exit 343', 'Bristol {name}', '{name} on the Loose', '{name} No Brakes', '{name} the Problem', 'The Doylestown Devil {name}', 'Wicked {name}', 'Delco {name}', '{name} Too Loud', 'Off-Leash {name}', '{name} No Leash', 'Rt. 1 {name}', 'Jawn Boy {name}', 'No-Hoagie {name}', '{name} from the Cut', '{name} Bucks Bandit', '{name} the Unit', 'Young {name}', 'The Yardley Phantom {name}', 'Levittown {name}', 'Midnight {name}', 'Curbside {name}', '{name} Slaps', 'Red Light {name}', 'Gas Up {name}', 'Heat Check {name}', 'Zip-Zap {name}', 'Warminster {name}', 'Quakertown {name}', '{name} with the Sauce', 'Fast Break {name}', '{name} No Cap', '{name} from the 267', 'Six Pack {name}', 'Pike {name}', '{name} Gets Loose', 'Late Night {name}', 'Ride or Die {name}', 'Lil Turnpike {name}', 'Outside {name}', 'Backroad {name}', 'Perkasie {name}', 'No Rules {name}', 'Smokehouse {name}', '{name} Too Deep', 'Langhorne {name}', 'Ghost {name}', '10-Speed {name}', 'Peep This {name}', 'Dip Can {name}', '{name} from the Wreck', 'Cold Hoagie {name}', 'Mossy Creek {name}', 'Upstream {name}', 'Shell Station {name}', 'Lotto Ticket {name}', 'No Napkins {name}', 'Bike Rack {name}', 'Dumpster Dive {name}', 'Red Solo {name}', 'Concrete {name}', 'West Bucks {name}', 'Back Lot {name}', 'Garage Door {name}', 'Yard Trash {name}', 'Drive-Thru {name}', 'Side Eye {name}', 'OG Sandwich {name}', 'Powerline {name}', 'Tag Up {name}', 'Drip Check {name}', 'Off Route {name}', 'Slick {name}', 'East Side {name}', 'Can Crusher {name}', 'No Parking {name}', 'Waffle House {name}', 'Zoned Out {name}', 'Boombox {name}', 'Fire Escape {name}', 'Jersey Border {name}', 'Don’t Ask {name}', 'Mid Shift {name}', 'Back Alley {name}', 'Front Step {name}', 'Kickstand {name}', 'Dumpster Fire {name}', 'Glovebox {name}'];
+
+    function generateNickname() {
+      const name = document.getElementById("nameInput").value.trim();
+      const output = document.getElementById("nickname");
+
+      if (!name) {
+        output.textContent = "👀 Enter a name first!";
+        return;
+      }
+
+      const format = formats[Math.floor(Math.random() * formats.length)];
+      output.textContent = format.replace("{name}", name);
+    }
+  </script>
+
+</body>
+</html>
